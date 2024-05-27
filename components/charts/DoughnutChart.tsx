@@ -1,0 +1,48 @@
+"use client"
+
+import { Account } from "@/lib/models/accounts/account.model"
+import {
+  ArcElement,
+  ChartData,
+  Chart as ChartJS,
+  Legend,
+  Tooltip
+} from "chart.js"
+import { Doughnut } from "react-chartjs-2"
+
+ChartJS.register(ArcElement, Tooltip, Legend)
+
+type DoughnutChartProps = {
+  accounts: Account[]
+}
+const DoughnutChart = ({ accounts }: DoughnutChartProps) => {
+  const accountNames = accounts.map(a => a.name)
+  const balances = accounts.map(a => a.currentBalance)
+
+  const data: ChartData<"doughnut", number[], unknown> = {
+    datasets: [
+      {
+        label: "Banks",
+        data: balances,
+        backgroundColor: ["#0747b6", "#2265d8", "#2f91fa"]
+      }
+    ],
+    labels: accountNames
+  }
+
+  return (
+    <Doughnut
+      data={data}
+      options={{
+        cutout: "60%",
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }}
+    />
+  )
+}
+
+export default DoughnutChart
