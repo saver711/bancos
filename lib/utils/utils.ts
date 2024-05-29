@@ -1,6 +1,13 @@
 /* eslint-disable no-prototype-builtins */
+import clsx, { ClassValue } from "clsx"
 import qs from "query-string"
+import { twMerge } from "tailwind-merge"
 import { Transaction } from "../../lib/models/transactions/transaction.model"
+
+// CLASS NAME
+export const cn = (...inputs: ClassValue[]) => {
+  return twMerge(clsx(inputs))
+}
 
 // FORMAT DATE TIME
 export const formatDateTime = (dateString: Date) => {

@@ -23,10 +23,13 @@ const CustomInput = <T extends FieldValues>({
       render={({ field }) => (
         <div className="form-item">
           {/* htmlFor & input id should be handled automatically by shadcn but i encountered an issue with this */}
-          <FormLabel className="form-label">{label}</FormLabel>
+          <FormLabel htmlFor={name} className="form-label">
+            {label}
+          </FormLabel>
           <div className="flex w-full flex-col">
             <FormControl>
               <Input
+                id={name}
                 placeholder={placeholder}
                 className="input-class"
                 type={

@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/sheet"
 import { sidebarLinks } from "@/constants/sidebar-links.const"
 import { User } from "@/lib/models/user/user.model"
-import { cn } from "@/lib/utils/ui/cn.util"
+import { cn } from "@/lib/utils/utils"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
